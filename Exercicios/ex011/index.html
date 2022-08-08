@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mídias em html5</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <h1><center>Imagem dinâmica</center></h1>
+    <p>Tente abrir esse site emvários dispositivos diferentes ou simplismente aumente ou diminua o tamanho do seu navegador.</p>
+
+    <picture>
+        <source media="(max-width: 750px)" srcset="imagens/image-p.png" type="image/png">
+        <source media="(max-width: 1050px)" srcset="imagens/image-m.png" type="image/png">
+        <img src="imagens/image-g.png" alt="Imagem Flexível">
+    </picture>
+
+    <h1><center>Reproduzindo Áudio</center></h1>
+    <p>Vamos aprender a reproduzir áudios em HTML5.</p>
+    <p>Música de João Gomes:</p>
+    <audio src="midias/joao-gomes.mp3" controls autoplay></audio>
+    <!-- MP3 WAV OGG -->
+    <br>
+    <a href="midias/joao-gomes.mp3">Clique aqui para baixar a música a cima</a>
+    <br>
+    <p>Música de Tarcisio do Acordeon:</p>
+    <audio preload="metadata" autoplay controls loop>
+        <source src="midias/tarciso.mp3" type="audio/mpeg">
+        <source src="midias/tarciso.ogg" type="audio/ogg">
+        <source src="midias/tarciso.wav" type="audio/wav">
+        <p>Infelizmente seu navegador não consegue reproduzir áudio. <a href="midias/tarciso.mp3">Clique aqui para baixar o arquivo em MP3!</a></p>
+    </audio>
+    <br>
+    <a href="midias/tarciso.mp3">Clique aqui para baixar a música a cima</a>
+</body>
+</html>
