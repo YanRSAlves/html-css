@@ -1,0 +1,81 @@
+/*.jumbotron {
+    background-image: url("../img/karibik.jpg");
+    background-size: cover;
+    padding-bottom: 30%;
+}
+.jumbotron p {
+    color: white;
+    text-align: center;
+    font-style: italic;
+    font-weight: 0;
+    font-size: 15px;
+}    
+.jumbotron h1 {
+    color: white;
+    text-align: center;
+}
+.jumbotron a{
+	color: #33FF33;
+	position: absolute;
+      right: 5%;
+      font-size: 150%;
+}*/
+
+#learnMore {
+    padding-top: 20%;
+}
+
+
+.carousel {
+    margin-top: 40px;
+}
+.carousel-caption {
+    padding-bottom: 45%;
+}
+
+
+/* is jez mit dem das faq und contact in index.hmtl sind*/
+.container {
+  margin-top: 5%;
+}
+body {
+  position: relative;
+}
+#contact{
+  background-image: url("../img/basketball.3.png");
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+  padding: 100px;
+  padding-top: 50px;
+}
+
+
+#headingOne h4, #headingTwo, #headingThree, #headingFour, #headingFive, #headingSix {
+  color: blue;
+}
+.jumbotron {
+  background-color: blue;
+}
+.row {
+  margin-top: 5%;
+}
+.panel-body {
+  color: blue;
+}
+.nav li a {
+  transition: 800ms;
+}
+.ProjektName {
+  float:left;
+}
+
+/*.nav {
+    background-color: black; 
+}
+.navbar-default .navbar-nav li a {
+  color: white;
+}
+.navbar-nav>li>a:hover{
+  color:#ff0;
+}*/
