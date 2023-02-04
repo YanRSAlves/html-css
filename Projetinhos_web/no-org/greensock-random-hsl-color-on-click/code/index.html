@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - GreenSock Random HSL Color on Click</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="code">
+<pre class="code-block prettyprint lang-js">
+gsap.set("body", {
+	background: `hsl(
+		${"random(0, 360)"}, 
+		${"random(50, 100)"}%, 
+		${"random(25, 75)"}%)`
+}))</pre>
+	</div>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?lang=css&amp;skin=sunburst'></script>
+<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script>
+<script src='https://assets.codepen.io/16327/SplitText3.min.js'></script>
+<script src='https://assets.codepen.io/16327/GSDevTools3.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+* {
+  padding: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  perspective: 50em;
+}
+body *:not(:empty) {
+  transform-style: preserve-3d;
+}
+
+input[type=radio] {
+  display: none;
+}
+input[type=radio]#boardCB:checked ~ .backgammon {
+  --ry: 0deg;
+  --tx: 0%;
+  --piece-op: 1;
+  --piece-tz: 0;
+  --tz: 1px;
+  --bDelay: 0s;
+}
+input[type=radio]#boardCB:checked ~ .close {
+  --ty: -100%;
+}
+
+.backgammon {
+  position: relative;
+  transform: rotateX(60deg);
+  -webkit-animation: rotate 20s infinite linear;
+          animation: rotate 20s infinite linear;
+}
+@-webkit-keyframes rotate {
+  from {
+    transform: rotateX(60deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(60deg) rotateZ(360deg);
+  }
+}
+@keyframes rotate {
+  from {
+    transform: rotateX(60deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(60deg) rotateZ(360deg);
+  }
+}
+
+.board {
+  position: absolute;
+  width: 7em;
+  height: 14em;
+  background-color: #e9d0af;
+  background-image: radial-gradient(transparent, rgba(0, 0, 0, var(--fade, 0))), url("https://assets.codepen.io/1948355/wood04.png");
+  transition: transform 1s var(--bDelay, 1.5s);
+}
+.board:nth-child(1) {
+  transform: translate(var(--tx, -50%), -50%);
+}
+.board:nth-child(2) {
+  right: 0;
+  transform: translate(var(--tx, -50%), -50%) rotateY(var(--ry, 180deg));
+  transform-origin: 100% 0 0.5em;
+}
+.board:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 90%;
+  aspect-ratio: 1/2;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: translateY(-50%) rotateY(180deg);
+  background-image: repeating-conic-gradient(#0007 0 90deg, #fff7 0 180deg);
+  background-size: 50% 25%;
+  border: solid #777;
+  border-width: 2px 2px 2px 0;
+}
+
+.border {
+  position: absolute;
+  inset: 0;
+}
+.border div {
+  position: absolute;
+  box-shadow: 0 0 2em #0007 inset;
+  background-color: #e9d0af;
+  background-image: radial-gradient(transparent, rgba(0, 0, 0, var(--fade, 0))), url("https://assets.codepen.io/1948355/wood04.png");
+}
+.border div:nth-child(1) {
+  width: 0.5em;
+  height: 14em;
+  rotate: Y -90deg;
+  transform-origin: left;
+}
+.border div:nth-child(2) {
+  left: 0.5em;
+  top: 0.5em;
+  width: 0.5em;
+  height: 13em;
+  rotate: Y -90deg;
+  transform-origin: left;
+}
+.border div:nth-child(3) {
+  right: 0.5em;
+  top: 0.5em;
+  width: 0.5em;
+  height: 13em;
+  rotate: Y 90deg;
+  transform-origin: right;
+}
+.border div:nth-child(4) {
+  width: 0.5em;
+  height: 14em;
+  right: 0;
+  rotate: Y 90deg;
+  transform-origin: right;
+}
+.border div:nth-child(5) {
+  width: 7em;
+  height: 0.5em;
+  rotate: X 90deg;
+  transform-origin: top;
+}
+.border div:nth-child(6) {
+  width: 6em;
+  height: 0.5em;
+  left: 0.5em;
+  top: 0.5em;
+  rotate: X 90deg;
+  transform-origin: top;
+}
+.border div:nth-child(7) {
+  width: 6em;
+  height: 0.5em;
+  left: 0.5em;
+  bottom: 0.5em;
+  rotate: X -90deg;
+  transform-origin: bottom;
+}
+.border div:nth-child(8) {
+  width: 7em;
+  height: 0.5em;
+  bottom: 0;
+  rotate: X -90deg;
+  transform-origin: bottom;
+}
+.border div:nth-child(9) {
+  inset: 0;
+  translate: 0 0 0.5em;
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 0 0, 0.5em 0.5em, 6.5em 0.5em, 6.5em 13.5em, 0.5em 13.5em, 0.5em 0.5em);
+          clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 0 0, 0.5em 0.5em, 6.5em 0.5em, 6.5em 13.5em, 0.5em 13.5em, 0.5em 0.5em);
+}
+
+.triangles {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateZ(1px);
+}
+.triangles > div {
+  position: absolute;
+  width: 1em;
+  height: 5em;
+  background-color: #fff;
+  transform-origin: top left;
+  transform: rotateZ(var(--rz, 0)) translate(var(--tx, 0), 1.5em);
+  background-color: #5e2f00;
+  background-image: radial-gradient(transparent, rgba(0, 0, 0, var(--fade, 0))), url("https://assets.codepen.io/1948355/wood04.png");
+  -webkit-clip-path: var(--cp, polygon(0 100%, 50% 0, 100% 100%));
+          clip-path: var(--cp, polygon(0 100%, 50% 0, 100% 100%));
+}
+.triangles > div:nth-child(odd) {
+  --cp: polygon(0 100%, 50% 0, 100% 100%, 50% 20%) ;
+}
+.triangles > div:nth-child(n+7) {
+  --rz: 180deg;
+}
+.triangles > div:nth-child(6n+1) {
+  --tx: -3em;
+}
+.triangles > div:nth-child(6n+2) {
+  --tx: -2em;
+}
+.triangles > div:nth-child(6n+3) {
+  --tx: -1em;
+}
+.triangles > div:nth-child(6n+4) {
+  --tx: 0em;
+}
+.triangles > div:nth-child(6n+5) {
+  --tx: 1em;
+}
+.triangles > div:nth-child(6n+6) {
+  --tx: 2em;
+}
+
+.pieces {
+  position: absolute;
+}
+
+.piece {
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  transform: rotateZ(var(--rz, 0)) translate3d(var(--tx, 0), var(--ty, 0), var(--tz, 15em));
+  transition: transform 2s var(--tDelay, 0s);
+  transform-origin: top left;
+}
+.piece input[type=checkbox] {
+  display: none;
+}
+.piece.moveable input[type=checkbox]:checked ~ div {
+  --exTz: 0.5em;
+}
+.piece.slot1 {
+  --tx: -6.5em;
+}
+.piece.slot7 {
+  --tx: 0.5em;
+}
+.piece.slot13 {
+  --tx: -6.5em;
+  --rz: 180deg;
+}
+.piece.slot19 {
+  --tx: 0.5em;
+  --rz: 180deg;
+}
+.piece.pos1 {
+  --ty: 5.5em;
+}
+.piece.slot2 {
+  --tx: -5.5em;
+}
+.piece.slot8 {
+  --tx: 1.5em;
+}
+.piece.slot14 {
+  --tx: -5.5em;
+  --rz: 180deg;
+}
+.piece.slot20 {
+  --tx: 1.5em;
+  --rz: 180deg;
+}
+.piece.pos2 {
+  --ty: 4.5em;
+}
+.piece.slot3 {
+  --tx: -4.5em;
+}
+.piece.slot9 {
+  --tx: 2.5em;
+}
+.piece.slot15 {
+  --tx: -4.5em;
+  --rz: 180deg;
+}
+.piece.slot21 {
+  --tx: 2.5em;
+  --rz: 180deg;
+}
+.piece.pos3 {
+  --ty: 3.5em;
+}
+.piece.slot4 {
+  --tx: -3.5em;
+}
+.piece.slot10 {
+  --tx: 3.5em;
+}
+.piece.slot16 {
+  --tx: -3.5em;
+  --rz: 180deg;
+}
+.piece.slot22 {
+  --tx: 3.5em;
+  --rz: 180deg;
+}
+.piece.pos4 {
+  --ty: 2.5em;
+}
+.piece.slot5 {
+  --tx: -2.5em;
+}
+.piece.slot11 {
+  --tx: 4.5em;
+}
+.piece.slot17 {
+  --tx: -2.5em;
+  --rz: 180deg;
+}
+.piece.slot23 {
+  --tx: 4.5em;
+  --rz: 180deg;
+}
+.piece.pos5 {
+  --ty: 1.5em;
+}
+.piece.slot6 {
+  --tx: -1.5em;
+}
+.piece.slot12 {
+  --tx: 5.5em;
+}
+.piece.slot18 {
+  --tx: -1.5em;
+  --rz: 180deg;
+}
+.piece.slot24 {
+  --tx: 5.5em;
+  --rz: 180deg;
+}
+.piece.pos6 {
+  --ty: 0.5em;
+}
+.piece:nth-child(1) {
+  --tDelay: 0.488s;
+}
+.piece:nth-child(2) {
+  --tDelay: 0.06s;
+}
+.piece:nth-child(3) {
+  --tDelay: 0.013s;
+}
+.piece:nth-child(4) {
+  --tDelay: 0.968s;
+}
+.piece:nth-child(5) {
+  --tDelay: 0.977s;
+}
+.piece:nth-child(6) {
+  --tDelay: 0.772s;
+}
+.piece:nth-child(7) {
+  --tDelay: 0.338s;
+}
+.piece:nth-child(8) {
+  --tDelay: 0.359s;
+}
+.piece:nth-child(9) {
+  --tDelay: 0.435s;
+}
+.piece:nth-child(10) {
+  --tDelay: 0.316s;
+}
+.piece:nth-child(11) {
+  --tDelay: 0.893s;
+}
+.piece:nth-child(12) {
+  --tDelay: 0.8s;
+}
+.piece:nth-child(13) {
+  --tDelay: 0.638s;
+}
+.piece:nth-child(14) {
+  --tDelay: 0.619s;
+}
+.piece:nth-child(15) {
+  --tDelay: 0.434s;
+}
+.piece:nth-child(16) {
+  --tDelay: 0.432s;
+}
+.piece:nth-child(17) {
+  --tDelay: 0.984s;
+}
+.piece:nth-child(18) {
+  --tDelay: 0.719s;
+}
+.piece:nth-child(19) {
+  --tDelay: 0.487s;
+}
+.piece:nth-child(20) {
+  --tDelay: 0.799s;
+}
+.piece:nth-child(21) {
+  --tDelay: 0.628s;
+}
+.piece:nth-child(22) {
+  --tDelay: 0.123s;
+}
+.piece:nth-child(23) {
+  --tDelay: 0.212s;
+}
+.piece:nth-child(24) {
+  --tDelay: 0.522s;
+}
+.piece:nth-child(25) {
+  --tDelay: 0.224s;
+}
+.piece:nth-child(26) {
+  --tDelay: 0.808s;
+}
+.piece:nth-child(27) {
+  --tDelay: 0.033s;
+}
+.piece:nth-child(28) {
+  --tDelay: 0.79s;
+}
+.piece:nth-child(29) {
+  --tDelay: 0.939s;
+}
+.piece:nth-child(30) {
+  --tDelay: 0.316s;
+}
+.piece > i {
+  display: block;
+  position: absolute;
+  inset: 2%;
+  border-radius: 50%;
+  transform: translateZ(calc(var(--tz, 0em) + var(--exTz, 0px)));
+  border: 10px solid hsla(0, 0%, 0%, var(--al, 0));
+  transition: transform 0.3s;
+}
+.piece > i:nth-child(2) {
+  --tz: 0px;
+  --al: 0.45;
+}
+.piece > i:nth-child(3) {
+  --tz: 1px;
+  --al: 0.4;
+}
+.piece > i:nth-child(4) {
+  --tz: 2px;
+  --al: 0.35;
+}
+.piece > i:nth-child(5) {
+  --tz: 3px;
+  --al: 0.3;
+}
+.piece > i:nth-child(6) {
+  --tz: 4px;
+  --al: 0.25;
+}
+.piece > i:nth-child(7) {
+  --tz: 5px;
+  --al: 0.2;
+}
+.piece > i:nth-child(8) {
+  --tz: 6px;
+  --al: 0.15;
+}
+.piece > i:nth-child(9) {
+  --tz: 7px;
+  --al: 0.1;
+}
+.piece > i:nth-child(10) {
+  --tz: 8px;
+  --al: 0.05;
+}
+.piece > i:nth-child(11) {
+  --tz: 9px;
+  --al: 0;
+}
+.piece > i:first-child {
+  box-shadow: 0 0 0.25em #000;
+}
+.piece.clr1 > i {
+  background-color: #420;
+  background-image: radial-gradient(transparent, rgba(0, 0, 0, var(--fade, 0))), url("https://assets.codepen.io/1948355/wood04.png");
+}
+.piece.clr2 > i {
+  background-color: burlywood;
+  background-image: radial-gradient(transparent, rgba(0, 0, 0, var(--fade, 0))), url("https://assets.codepen.io/1948355/wood04.png");
+}
+
+.close {
+  position: absolute;
+  top: 100%;
+  transform: translateY(var(--ty, 0));
+  transition: transform 1s;
+}

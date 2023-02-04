@@ -1,0 +1,72 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --black: #191a19;
+  --white: #fafafa;
+  --pikachu: #f3cf21;
+  --serif: "Playfair Display", serif;
+  --ease: cubic-bezier(0.62, 0.05, 0.01, 0.99);
+  background-color: var(--black);
+  font-family: var(--serif);
+}
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+}
+
+a {
+  position: relative;
+  color: var(--white);
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  text-decoration: none;
+  padding-bottom: 0.2em;
+  width: max-content;
+  line-height: 1;
+}
+a span {
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 350ms ease-out;
+  transform-origin: center center;
+  transform-style: preserve-3d;
+}
+a .primary {
+  position: relative;
+}
+a .secondary {
+  position: absolute;
+  transform: translateY(0.5em) rotateX(90deg);
+  left: 0;
+}
+a::before {
+  content: "";
+  width: 100%;
+  height: 0.075em;
+  background-color: var(--pikachu);
+  position: absolute;
+  bottom: 0em;
+  transform: scaleX(0);
+  transition: all 350ms ease-out;
+  transform-origin: left center;
+}
+a:hover .primary {
+  transform: translateY(-0.5em) rotateX(90deg);
+}
+a:hover .secondary {
+  transform: translateY(0em);
+}
+a:hover::before {
+  transform: scaleX(1);
+  transition-delay: 200ms;
+}

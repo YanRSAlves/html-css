@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - HWB Selector</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Rowdies:wght@700&amp;display=swap'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!-- Reduce the Alpha level to see the text behind -->
+<p id="hiddenText"> Hello There </p>
+
+<main>
+	<p id="hwb">Let's Play with HWB</p>
+	<section>
+
+		<div id="hueContainer" class="slideContainer verticalContainer">
+			<input id="hueSlider" type="range" min="0" max="360" value="233" class="slider verticalSlider" orient="vertical">
+			<p id="hueOutput">H: 233</p>
+		</div>
+
+		<div id="whitenessContainer" class="slideContainer horizontalContainer">
+			<input id="whitenessSlider" type="range" min="0" max="100" value="27" class="slider horizontalSlider">
+			<p id="whitenessOutput">W: 27</p>
+		</div>
+
+		<div id="blacknessContainer" class="slideContainer verticalContainer">
+			<p id="blacknessOutput">B: 29</p>
+			<input id="blacknessSlider" type="range" min="0" max="100" value="29" class="slider verticalSlider" orient="vertical">
+		</div>
+
+		<div id="alphaContainer" class="slideContainer horizontalContainer">
+			<p id="alphaOutput">100</p>
+			<input id="alphaSlider" type="range" min="0" max="100" value="100" class="slider horizontalSlider">
+
+		</div>
+
+	</section>
+
+</main>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

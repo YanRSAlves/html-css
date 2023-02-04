@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - CSS-Bash</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<input type="radio" id="boardCB" name="openClose">
+<label for="boardCB" class="backgammon">
+  <div class="board">
+    <div class="border">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="triangles">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="board">
+    <div class="border">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="triangles">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="pieces">
+    <label class="piece slot1 pos1 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot1 pos2 clr1 moveable"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+
+    <label class="piece slot6 pos1 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot6 pos2 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot6 pos3 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot6 pos4 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot6 pos5 clr2 moveable"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+
+    <label class="piece slot8 pos1 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot8 pos2 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot8 pos3 clr2 moveable"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+
+    <label class="piece slot12 pos1 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot12 pos2 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot12 pos3 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot12 pos4 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot12 pos5 clr1 moveable"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+
+    <label class="piece slot13 pos1 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot13 pos2 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot13 pos3 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot13 pos4 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot13 pos5 clr2 moveable"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+
+    <label class="piece slot17 pos1 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot17 pos2 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot17 pos3 clr1 moveable"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+
+    <label class="piece slot19 pos1 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot19 pos2 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot19 pos3 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot19 pos4 clr1"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot19 pos5 clr1 moveable"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+
+    <label class="piece slot24 pos1 clr2"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+    <label class="piece slot24 pos2 clr2 moveable"><input type="checkbox"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></label>
+  </div>
+</label>
+
+<label class="close">
+  <input type="radio" name="openClose">
+  Close
+</label>
+<!-- partial -->
+  <script src='https://assets.codepen.io/1948355/twitterButton-2.1.0.js'></script>
+</body>
+</html>

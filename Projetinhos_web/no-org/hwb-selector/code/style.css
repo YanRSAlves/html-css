@@ -1,0 +1,141 @@
+:root {
+	/* 	Vars to store the selected colors */
+	--hueVal: 233;
+	--whitenessVal: 27%;
+	--blacknessVal: 29%;
+	--alphaVal: 100%;
+}
+
+body {
+	margin: 0;
+	background: URL(https://paul7dxb.github.io/hosted-assets/obiwan.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+main {
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	background-color: hwb(
+		var(--hueVal) var(--whitenessVal) var(--blacknessVal) / var(--alphaVal)
+	);
+	z-index: 2;
+}
+
+#hwb {
+	text-align: center;
+	margin-top: 2vh;
+}
+
+p {
+	font-family: "Rowdies", sans-serif;
+	font-weight: 700;
+	font-size: 2.5rem;
+	text-transform: uppercase;
+	line-height: 0.9;
+	color: white;
+	text-shadow: 0.1em 0.1em 0 black;
+}
+
+#hiddenText {
+	position: absolute;
+	text-align: center;
+	z-index: -1;
+	width: 100vw;
+	top: 50vh;
+}
+
+section {
+	position: absolute;
+	left: 10vw;
+	right: 10vw;
+	height: 75vh;
+	top: 18vh;
+}
+
+.slideContainer {
+	position: absolute;
+}
+
+.horizontalContainer {
+	width: 50vw;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+.horizontalContainer > * {
+	margin: 2vh;
+}
+
+#alphaContainer {
+	bottom: 0;
+}
+
+#hueContainer {
+	-webkit-appearance: slider-vertical;
+}
+
+.horizontalSlider {
+	width: 90%;
+	height: 15px;
+}
+
+.verticalSlider {
+	appearance: slider-vertical;
+	-moz-appearance: slider-vertical;
+	-webkit-appearance: slider-vertical;
+	width: 15px;
+	height: 100%;
+}
+
+#whitenessSlider {
+	margin-top: 0;
+}
+
+.verticalContainer {
+	height: 70vh;
+	width: fit-content;
+}
+
+#blacknessContainer {
+	right: 0;
+}
+
+#blacknessContainer > *,
+#hueContainer > * {
+	display: inline;
+	vertical-align: middle;
+}
+
+.slider {
+	/* webkit none causing issue preventing slider working in IE / Chrome	 */
+	-webkit-appearance: none;
+	background: #111;
+	outline: none;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+.verticalSlider {
+	appearance: slider-vertical;
+	-moz-appearance: slider-vertical;
+	-webkit-appearance: slider-vertical;
+	width: 15px;
+	height: 100%;
+}
+
+.slider::::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border-radius: 50%;
+	background: #00fd0a;
+	cursor: pointer;
+	border: 4px solid #333;
+	box-shadow: -407px 0 0 400px #00fd0a;
+}
